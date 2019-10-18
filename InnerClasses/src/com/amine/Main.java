@@ -1,15 +1,57 @@
 package com.amine;
 
-public class Main {
+import java.util.Scanner;
 
-    public static void main(String[] args) {
-	Gearbox amineGearBox  = new Gearbox(6);
-        /**
-         * l'instanciation d'une inner class est un peu particulier voyons voir!
-         */
-	Gearbox.Gear gearInnerClass = amineGearBox.new Gear(6, 3.4);
-        //Gearbox.Gear second = new Gearbox.Gear(6,3.2);
-        //Gearbox.Gear third = new gearInnerClass.Gear(6,3.2);
-        System.out.println(gearInnerClass.driveSpeed(1000));
-    }
+public class Main {
+    private static Scanner scanner = new Scanner(System.in);
+    private static Button btnPrint = new Button("Print" );
+        public static void main(String[] args)
+        {
+            /**
+             * implementer l'interface qui est declaré comme une inner class de la class Button
+             */
+
+                  /*  class ClickListener implements Button.OnClickListener{
+                        public ClickListener(){
+                            System.out.println(" I've been atached!");
+                        }
+                        @Override
+                        public void onClick(String title) {
+                            System.out.println(title + " was clicked!");
+                        }
+                    }
+            /***
+             * instacier la class clicklistener qui est une class inner aussi
+             */
+                           // btnPrint.setOnClickListener(new ClickListener());
+
+            /**
+             * anonymous classes
+             */
+            btnPrint.setOnClickListener(new Button.OnClickListener() {
+                @Override
+                public void onClick(String title) {
+                    System.out.println(title + " was clicked! with anonymous class");
+                }
+            });
+            listen();
+
+        }
+        private static void listen()
+            {
+                boolean quit = false;
+                        while (!quit)
+                        {
+                            int choice = scanner.nextInt();
+                            scanner.nextLine();
+                            switch (choice){
+                                case 0:
+                                    quit= true;
+                                    break;
+                                case 1:
+                                    btnPrint.onClick();
+                                    break;
+                            }
+                        }
+            }
 }

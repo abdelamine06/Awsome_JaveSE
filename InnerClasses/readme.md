@@ -1,3 +1,7 @@
+    Dans les InnerClasses y'a encore de type
+    1.classes locales : declare dans le bloc comme une methode
+    2.classes anonymes: des local class mais sans nom
+
 <!--titles-->
     Titles
 # amine

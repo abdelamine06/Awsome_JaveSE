@@ -13,8 +13,11 @@ public class Gearbox {
         this.gears = new ArrayList<>();
         Gear neutral = new Gear(0,0.0);
         this.gears.add(neutral);
-
+        for(int i=0; i<maxGears; i++){
+            addGear(i, i*5.3);
+        }
     }
+
     public void operatingClutch(boolean in){
         this.clutchIsIn = in;
     }
@@ -26,7 +29,7 @@ public class Gearbox {
     public void changeGear(int newGear){
         if((newGear>0) && (newGear <= this.gears.size()) && this.clutchIsIn){
             this.currentGear = newGear;
-            System.out.println("Gear " + newGear + "selected");
+            System.out.println("Gear " + newGear + " is selected");
         }else{
             System.out.println("GRIND!");
             this.currentGear = 0;
@@ -41,7 +44,9 @@ public class Gearbox {
             return revs * gears.get(currentGear).getRation();
         }
     }
-
+    /**
+     * ------------------------------------------------------Inner class ----------------------------------------------*
+     */
     /**
      * une inner class c'est a dire une classe dans une autre
      * this.gearNbr ici refere a celui de Gear class n'est pas à GearBox bien evidement
