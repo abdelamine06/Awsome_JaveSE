@@ -22,8 +22,16 @@ public class Main {
 	Foot3Team.addPlayer(amine3);
 
 	Foot1Team.matchResult(Foot3Team, 1,3);
-	Foot1Team.matchResult(Foot2Team, 4 ,4);
-		System.out.println("Ranking for Team1 " +Foot1Team.ranking());
+	Foot1Team.matchResult(Foot2Team, 4 ,3);
+	Foot2Team.matchResult(Foot3Team, 3 ,3);
+
+	System.out.println("*****Ranking******");
+	System.out.println(Foot1Team.getName() + ": " +Foot1Team.ranking());
+	System.out.println(Foot3Team.getName() + ": " +Foot3Team.ranking());
+	System.out.println(Foot2Team.getName() + ": " +Foot2Team.ranking());
+	System.out.println("*****Order*******");
+	System.out.println(Foot1Team.getName()+ " : " + Foot1Team.compareTo(Foot2Team));
+	System.out.println(Foot1Team.getName()+ " : " + Foot1Team.compareTo(Foot3Team));
 
 
 

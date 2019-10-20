@@ -3,7 +3,7 @@ package com.amine;
 import java.util.ArrayList;
 // en faisant T extends Player en empeches l'utilisation d'autres type comme le string ou le int
 // ça sera juste des objets de type Player
-public class Team<T extends Player> {
+public class Team<T extends Player> implements Comparable<Team> {
     private String name;
     int played = 0;
     int won = 0;
@@ -61,5 +61,19 @@ public class Team<T extends Player> {
     public int ranking()
     {
         return (won * 2) + tied;
+    }
+
+    @Override
+    public int compareTo(Team team) {
+        if(this.ranking()> team.ranking())
+        {
+            return 1;
+        }else if(this.ranking() < team.ranking())
+        {
+            return -1;
+        }else
+            {
+                return 0;
+            }
     }
 }
