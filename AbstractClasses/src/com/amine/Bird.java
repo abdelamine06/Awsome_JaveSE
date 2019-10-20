@@ -1,6 +1,6 @@
 package com.amine;
 
-public  abstract class Bird extends Animal {
+public  abstract class Bird extends Animal implements CanFly {
 
     public Bird(String name) {
         super(name);
@@ -15,5 +15,9 @@ public  abstract class Bird extends Animal {
     public void breathe() {
         System.out.println(" breathe in breathe out \n");
     }
-    public abstract void fly();
+
+    @Override
+    public void fly() {
+        System.out.println(getName()+ " is flapping its wings!");
+    }
 }
