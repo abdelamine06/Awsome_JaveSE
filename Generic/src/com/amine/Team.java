@@ -1,14 +1,15 @@
 package com.amine;
 
 import java.util.ArrayList;
-
-public class Team {
+// en faisant T extends Player en empeches l'utilisation d'autres type comme le string ou le int
+// ça sera juste des objets de type Player
+public class Team<T extends Player> {
     private String name;
     int played = 0;
     int won = 0;
     int lost = 0;
     int tied = 0;
-    private ArrayList<Player> members = new ArrayList<>();
+    private ArrayList<T> members = new ArrayList<>();
 
     public Team(String name) {
         this.name = name;
@@ -17,16 +18,17 @@ public class Team {
     public String getName() {
         return name;
     }
-    public boolean addPlayer(Player player)
+    public boolean addPlayer(T player)
     {
         if(members.contains(player))
         {
-            System.out.println(player.getName() + " is already in this team");
+            // caster le type de l'objet player à Player
+            System.out.println( player.getName() + " is already in this team \n");
         }else
             {
                 // members c'est un array list
                 members.add(player);
-                System.out.println(player.getName() + " picked for team " + this.name);
+                System.out.println(player.getName() + " picked for team " + this.name +"\n");
                 return true;
             }
         return false;
@@ -35,19 +37,19 @@ public class Team {
     public int nbrPlayers(){
         return this.members.size();
     }
-    public void matchResult(Team opponent, int ourScore, int theirScore)
+    public void matchResult(Team<T> opponent, int ourScore, int theirScore)
     {
         if(ourScore > theirScore){
             won++;
-            System.out.printf("We are Win !");
+            System.out.printf(this.name + " We are Win ! \n");
         }else if (ourScore == theirScore)
         {
             tied++;
-            System.out.printf("We are in equal result!");
+            System.out.printf( this.name+ " We are in equal result! \n");
         }else
             {
                 lost++;
-                System.out.println("We ar lose!");
+                System.out.println(this.name+" We ar lose! \n");
             }
         played++;
         if(opponent != null)
