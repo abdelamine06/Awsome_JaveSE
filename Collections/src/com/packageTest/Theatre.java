@@ -1,11 +1,13 @@
 package com.packageTest;
 
 
+import java.awt.List;
 import java.util.*;
 
 public class Theatre {
     private final String theatreName;
-    private List<Seat> seats = new ArrayList<Seat>();
+    private ArrayList<Seat> seats = new ArrayList<>();
+    // On utilisant HashSet les seats retourné seront pas ordonnée
 
         public Theatre(String theatreName, int numRows, int seatsPerRows )
         {
@@ -28,20 +30,16 @@ public class Theatre {
 
     public boolean reserveSeat(String seatNumber)
     {
-        Seat requestedSeat = null;
-        for(Seat seat: seats)
+        Seat requestedSeat = new Seat(seatNumber);
+        int foundSeat = Collections.binarySearch(seats,requestedSeat,null);
+        if(foundSeat >= 0)
         {
-            if(seat.getSeatNumber().equals(seatNumber))
+            return seats.get(foundSeat).reserve();
+        }else
             {
-                requestedSeat = seat;
-                break;
+                System.out.println("There is no seat " + seatNumber);
+                return false;
             }
-        }
-        if(requestedSeat == null)
-        {
-            System.out.println("There is no seat " + seatNumber);
-        }
-        return requestedSeat.reserve();
     }
 
     //for testing
@@ -56,13 +54,18 @@ public class Theatre {
     //************************************************************
     // la declaration d'une inner class Seat
 
-    private class   Seat
+    private class  Seat implements Comparable<Seat>
     {
         private final String seatNumber;
         private boolean reserved = false;
 
         public Seat(String seatNumber) {
             this.seatNumber = seatNumber;
+        }
+
+        @Override
+        public int compareTo(Seat seat) {
+            return this.seatNumber.compareToIgnoreCase(seat.seatNumber);
         }
 
         public String getSeatNumber() {
