@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Theatre {
     private final String theatreName;
-    private ArrayList<Seat> seats = new ArrayList<>();
+    public  ArrayList<Seat> seats = new ArrayList<>();
     // On utilisant HashSet les seats retourné seront pas ordonnée
 
         public Theatre(String theatreName, int numRows, int seatsPerRows )
@@ -18,7 +18,7 @@ public class Theatre {
                     for(int seatNum =0; seatNum<=seatsPerRows; seatNum++)
                     {
                         Seat seat = new Seat(row + String.format("%02d", seatNum));
-                        seats.add(seat);
+                         seats.add(seat);
                     }
                 }
         }
@@ -54,7 +54,7 @@ public class Theatre {
     //************************************************************
     // la declaration d'une inner class Seat
 
-    private class  Seat implements Comparable<Seat>
+    public class  Seat implements Comparable<Seat>
     {
         private final String seatNumber;
         private boolean reserved = false;
