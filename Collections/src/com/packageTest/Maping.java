@@ -14,7 +14,7 @@ public class Maping {
         }
 
         languages.put("python", "interepeted, oriented object, high level");
-        languages.put("algo", "algorthmic language ");
+        languages.put("algo", "algorthmic language");
         languages.put("Basic", "Beginger all purposes symbolic");
         //System.out.println(languages.get("java"));
         //languages.put("java", "Value is overiden !");
@@ -26,6 +26,8 @@ public class Maping {
             System.out.println("");
         }
 
+        languages.remove("java");
+        languages.replace("algo", "algorthmic language", "new algorthmic language");
         System.out.println("================================================");
         for (String key : languages.keySet()){
             System.out.printf(key + ": " + languages.get(key)+ "\n");
