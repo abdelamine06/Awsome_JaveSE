@@ -7,22 +7,27 @@ import java.util.*;
 public class Theatre {
     private final String theatreName;
     private   ArrayList<Seat> seats = new ArrayList<>();
-    static final Comparator<Seat> PRICE_ORDER = new Comparator<Seat>() {
-        @Override
-        public int compare(Seat seat1, Seat seat2) {
-            if(seat1.getPrice() < seat2.getPrice())
-            {
-                return -1;
-            }else if(seat1.getPrice() > seat2.getPrice())
+    static final Comparator<Seat> PRICE_ORDER ;
+    static {
+        PRICE_ORDER = new Comparator<Seat>() {
+
+            @Override
+            public int compare(Seat seat1, Seat seat2) {
+                if(seat1.getPrice() < seat2.getPrice())
+                {
+                    return -1;
+                }else if(seat1.getPrice() > seat2.getPrice())
                 {
                     return 1;
                 }else
-                    {
-                        return 0;
-                    }
+                {
+                    return 0;
+                }
 
-        }
-    };
+            }
+        };
+    }
+
 
     /**
      * getter theatreName variable
