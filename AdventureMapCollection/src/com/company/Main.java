@@ -3,7 +3,7 @@ package com.company;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
+//adeventure challenge pas encore fait vidéo 8 collections
 
 public class Main {
     private static Scanner scanner = new java.util.Scanner(System.in);
