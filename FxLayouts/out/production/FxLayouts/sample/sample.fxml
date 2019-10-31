@@ -1,0 +1,18 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="10" vgap="10" gridLinesVisible="true" >
+    <columnConstraints>
+        <ColumnConstraints percentWidth="50" />
+        <ColumnConstraints percentWidth="50" />
+    </columnConstraints>
+    <Button text="Button1" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <Button text="Butsdfsdfton2" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+    <Button text="Button3" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <Button text="Button4" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+    <Button text="Button5" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+</GridPane>
