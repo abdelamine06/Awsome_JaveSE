@@ -24,18 +24,18 @@ public class Main extends Application {
         /**
          * using an FXML FILE
          */
-       // Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         /**
          * without using the Fxml file
          */
-        GridPane root = new GridPane();
+       /** GridPane root = new GridPane();
         root.setAlignment(Pos.CENTER);
         root.setVgap(10);
         root.setHgap(10);
         Label greeting = new Label("Welcome to JavaFX");
         greeting.setTextFill(javafx.scene.paint.Color.GREEN);
         greeting.setFont(Font.font("Times New Roman", FontWeight.BOLD, 70));
-        root.getChildren().add(greeting);
+        root.getChildren().add(greeting);**/
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 900, 275));
         primaryStage.show();
